@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/005ad9d070.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="container">
       <form class="login" id="login">
         <p>welcome</p>
-        <p>
+        <div>
+          <label for="username">Username</label><br />
+          <i class="fa-solid fa-user"></i>
           <input
-            type="text"
-            name="username"
-            required
-            maxlength="40"
-            id="username"
-            placeholder="Username"
+          type="text"
+          name="username"
+          required
+          maxlength="40"
+          id="username"
+          placeholder="Type your username"
           />
-        </p>
-        <p>
+        </div>
+        <div>
+          <label for="password">Password</label><br />
+          <i class="fa-solid fa-lock"></i>
           <input
             type="password"
             name="password"
@@ -29,10 +34,15 @@
             minlength="8"
             maxlength="30"
             id="password"
-            placeholder="Password"
+            placeholder="Type your password"
           />
-        </p>
-        <input onclick="getData()" class="submit" type="submit" value="Log in" />
+        </div>
+        <input
+          onclick="getData()"
+          class="submit"
+          type="submit"
+          value="Log in"
+        />
       </form>
       <script src="app.js"></script>
     </div>
