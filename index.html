@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <form class="login" id="login">
+        <p>welcome</p>
+        <p>
+          <input
+            type="text"
+            name="username"
+            required
+            maxlength="40"
+            id="username"
+            placeholder="Username"
+          />
+        </p>
+        <p>
+          <input
+            type="password"
+            name="password"
+            required
+            minlength="8"
+            maxlength="30"
+            id="password"
+            placeholder="Password"
+          />
+        </p>
+        <input onclick="getData()" class="submit" type="submit" value="Log in" />
+      </form>
+      <script src="app.js"></script>
+    </div>
+  </body>
+</html>
