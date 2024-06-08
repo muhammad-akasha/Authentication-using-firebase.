@@ -28,11 +28,15 @@ function getData() {
     alert("password contain atleast one number case");
   } else if (!pass.match(specialChar)) {
     alert("Password Must Have Atleast One Special Character");
-  }else {
-      alert("Your Detail has Been Saved in LocalStorage");
-      form.submit();
-      localStorage.setItem("User Name" , user);
-      localStorage.setItem("User Password" , pass);
-      location.assign("https://66640ec324ce83a36749f7f9--stunning-frangipane-da25d2.netlify.app/")
+  } else {
+    alert("Your Detail has Been Saved in LocalStorage");
+    form.submit();
+    localStorage.setItem("User Name", user);
+    localStorage.setItem("User Password", pass);
+    location.assign(
+      "https://66640ec324ce83a36749f7f9--stunning-frangipane-da25d2.netlify.app/"
+      );
+      user = "";
+      pass = "";
   }
 }
