@@ -34,7 +34,7 @@ function getData() {
     localStorage.setItem("User Name", user);
     localStorage.setItem("User Password", pass);
     location.assign(
-      "https://66640ec324ce83a36749f7f9--stunning-frangipane-da25d2.netlify.app/"
+      "https://muhammad-akasha.github.io/mobile-specifications-cards./"
       );
       user = "";
       pass = "";
