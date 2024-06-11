@@ -13,21 +13,23 @@
       <form class="login" id="login">
         <p>welcome</p>
         <div>
-          <label for="username">Username</label><br />
+          <label for="username">Email</label><br />
           <i class="fa-solid fa-user"></i>
           <input
-          type="text"
-          name="username"
+          class="input-field"
+          type="email"
+          name="email"
           required
           maxlength="40"
-          id="username"
-          placeholder="Type your username"
+          id="useremail"
+          placeholder="Type your email"
           />
         </div>
         <div>
           <label for="password">Password</label><br />
           <i class="fa-solid fa-lock"></i>
           <input
+          class="input-field"
             type="password"
             name="password"
             required
@@ -38,12 +40,41 @@
           />
         </div>
         <input
-          onclick="getData()"
           class="submit"
           type="submit"
           value="Log in"
         />
+        <h5>not have an account <em class="sign-up-form" onclick="showSignUpForm()">Sign Up</em> </h5>
       </form>
+    </div>
+    <div class="signup-container">
+     <form id="signup">
+       <div>
+         <h2 class="text-center">Sign up Form</h2>
+         <label for="firstname">Your First Name : </label> <br>
+         <input placeholder="First Name" required type="text" name="firstname"
+         class="input-field"
+         id="firstname"> <br>
+         <label for="lastname">Your Last Name : </label> <br>
+         <input placeholder="Last Name" required type="text" name="lastname"
+         class="input-field"
+         id="lastname"> <br>
+         <label for="email">Your Email Address</label> <br>
+         <input placeholder="Email" required type="email" name="email"
+         class="input-field"
+         id="email"> <br>
+         <label for="userpassword">Your Password : </label> <br>
+         <input placeholder="Password" required type="password" name="userpassword"
+         class="input-field"
+         id="signuppass"> <br>
+         <label for="confirm">Confirm Password : </label> <br>
+         <input placeholder="Confirm password" required type="password" name="confirm"
+         class="input-field"
+         id="confirmpassword"> <br>
+         <button class="submit"> Submit </button>
+       </div>
+     </form>
+    </div>
       <script src="app.js"></script>
     </div>
   </body>
