@@ -132,7 +132,9 @@ p {
   font-style: normal;
   font-weight: 900;
 }
-
+button{
+  cursor: pointer;
+}
 @media (max-width: 530px) {
   input {
     width: 240px;

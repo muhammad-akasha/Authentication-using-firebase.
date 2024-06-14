@@ -3,6 +3,8 @@ let userEmail = document.getElementById("useremail");
 let password = document.getElementById("password");
 let form = document.getElementById("login");
 let signUpForm = document.getElementById("signup");
+let firstName = document.getElementById("firstname");
+let lastName = document.getElementById("lastname");
 let email = document.getElementById("email");
 let signUpPassword = document.getElementById("signuppass");
 let confirmPass = document.getElementById("confirmpassword");
@@ -35,9 +37,7 @@ function getData(user_email, userPassword) {
     form.submit();
     localStorage.setItem("Email", user);
     localStorage.setItem("Password", pass);
-    location.assign(
-      "https://muhammad-akasha.github.io/mobile-specifications-cards./"
-    );
+    location.replace("./login.html");
     user = "";
     pass = "";
   }
@@ -51,12 +51,11 @@ let userData = [
     password: [],
   },
 ];
+
 let user_email;
 let user_password;
 
 function signUpFormValues() {
-  user_email = userData[0].email;
-  user_password = userData[0].password;
   let emailVal = email.value;
   let signUpPassVal = signUpPassword.value;
   let confirmpassVal = confirmPass.value;
@@ -94,14 +93,20 @@ function signUpFormValues() {
       user.lastName.push(lastName.value);
       user.email.push(emailVal);
       user.password.push(signUpPassVal);
-      resetValues();
     });
+    user_email = userData[0].email;
+    user_password = userData[0].password;
+    // userData.push({
+    //   username : firstName.value,
+    //   email : emailVal,
+    //   password : signUpPassVal
+    // })
+    resetValues();
   }
 }
+// export default userData;
 
 function resetValues() {
-  let firstName = document.getElementById("firstname");
-  let lastName = document.getElementById("lastname");
   firstName.value = "";
   lastName.value = "";
   email.value = "";
