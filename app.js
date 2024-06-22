@@ -118,3 +118,17 @@ function showSignUpForm() {
   signUpForm.style.display = "block";
   formContainer.style.display = "none";
 }
+
+
+function showPassval () {
+  let passInp = document.getElementById("password");
+  let eye = document.getElementById("eyeicon");
+  if (passInp.type === "password"){
+    passInp.type = "text";
+    eye.className = "fa-solid fa-eye-slash"
+  }else{
+    passInp.type = "password";
+    eye.className = "fa-solid fa-eye"
+
+  }
+}
