@@ -35,6 +35,7 @@ input {
   padding: 6px 0px 6px 35px;
   font-style: normal;
   outline: none;
+  color: #fff;
 }
 .login {
   width: 355px;
@@ -58,14 +59,15 @@ input {
 }
 .fa-eye,
 .fa-eye-slash {
-  position: relative;
-  left: -20px;
+  position: absolute;
+  right: 26px;
   font-size: 16px;
   cursor: pointer;
+  top: 40px;
 }
 
-
-.login div {
+.login div,
+.eye-relative {
   margin-top: 30px;
   position: relative;
 }
@@ -102,6 +104,7 @@ p {
 }
 ::placeholder {
   font-family: Arial, Helvetica, sans-serif;
+  color: rgb(177, 158, 158);
 }
 .signup-container {
   display: flex;
@@ -112,7 +115,7 @@ p {
   margin: 40px auto;
   width: 60%;
 }
-#signup div {
+.signup-div {
   border: 2px solid black;
   padding: 45px 60px;
   border-radius: 30px;
@@ -143,16 +146,40 @@ p {
   font-style: normal;
   font-weight: 900;
 }
+.icon-box{
+  margin-top: 0px!important;
+  width: 30px;
+  height: 30px;
+  padding: 3px;
+  background: red;
+  border-radius: 50%;
+  display: flex;justify-content: center;
+  align-items: center
+}
+.acc-icons{
+  display: flex;
+  gap: 10px;
+  margin-top: 10px!important;
+  justify-content: center
+}
+.acc-icons i {
+  font-size: 17px;
+  color: #fff;
+  cursor: pointer;
+}
 button {
   cursor: pointer;
 }
 @media (max-width: 530px) {
   input {
-    width: 240px;
+    width: 85%;
   }
   .login {
     padding: 60px 30px;
   }
+}
+
+@media (max-width: 700px) {
   #signup {
     width: 90%;
   }
