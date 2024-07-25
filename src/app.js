@@ -9,7 +9,8 @@ import {
   updateProfile,
   GoogleAuthProvider,
   FacebookAuthProvider,
-  signInWithPopup
+  GithubAuthProvider,
+  signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
 const firebaseConfig = {
   apiKey: "AIzaSyC9q3625-DFPqHRJEGv2C-oit1RWzLuGOw",
@@ -20,8 +21,6 @@ const firebaseConfig = {
   appId: "1:930089270355:web:b3f12e279c58c3f8dd1aa6",
   measurementId: "G-J4F07VXLLP",
 };
-
-
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -76,7 +75,7 @@ function signInAuth() {
         location.replace("./login.html");
       })
       .catch((error) => {
-        alert("invalid email or password")
+        alert("invalid email or password");
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);
@@ -93,8 +92,8 @@ const googleHandler = async () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      console.log('Google sign-in successful:', user);
-      alert('Sign in with Google successful');
+      console.log("Google sign-in successful:", user);
+      alert("Sign in with Google successful");
       // Redirect or take any other action here
       location.replace("./login.html");
     })
@@ -102,44 +101,71 @@ const googleHandler = async () => {
       // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.error('Error during Google sign-in:', errorMessage);
-      alert('Error during Google sign-in: ' + errorMessage);
+      console.error("Error during Google sign-in:", errorMessage);
+      alert("Error during Google sign-in: " + errorMessage);
       // The email of the user's account used.
       const email = error.customData.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
     });
-}
+};
 
 window.googleHandler = googleHandler;
 
-let facebookHandler = document.getElementById("Facebook").addEventListener("click", async () => {
-    const provider = new FacebookAuthProvider();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = FacebookAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        console.log('Google sign-in successful:', user);
-        alert('Sign in with Google successful');
-        // Redirect or take any other action here
-        location.replace("./login.html");
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.error('Error during Google sign-in:', errorMessage);
-        alert('Error during Google sign-in: ' + errorMessage);
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = FacebookAuthProvider.credentialFromError(error);
-      });
-  } )
+document.getElementById("Facebook").addEventListener("click", async () => {
+  const provider = new FacebookAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = FacebookAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      console.log("facebook sign-in successful:", user);
+      alert("Sign in with facebook successful");
+      // Redirect or take any other action here
+      location.replace("./login.html");
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Error during facebook sign-in:", errorMessage);
+      alert("Error during facebook sign-in: " + errorMessage);
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = FacebookAuthProvider.credentialFromError(error);
+    });
+});
 
+document.getElementById("github-auth").addEventListener(
+  "click",
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+      const credential = GithubAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      console.log("github sign-in successful:", user);
+      alert("Sign in with github successful");
+      // The signed-in user info.
+      const user = result.user;
+      // IdP data available using getAdditionalUserInfo(result)
+      // ...
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Error during github sign-in:", errorMessage);
+      alert("Error during github sign-in: " + errorMessage);
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GithubAuthProvider.credentialFromError(error);
+      // ...
+    })
+);
 
 function signUpFormValues() {
   let email_val = email.value;
@@ -173,15 +199,17 @@ function signUpFormValues() {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        
+
         // Update user profile with the username
         updateProfile(user, {
-          displayName: `${firstNameVal} ${lastNameVal}`
-        }).then(() => {
-          console.log("Profile updated successfully");
-        }).catch((error) => {
-          console.error("Error updating profile: ", error);
-        });
+          displayName: `${firstNameVal} ${lastNameVal}`,
+        })
+          .then(() => {
+            console.log("Profile updated successfully");
+          })
+          .catch((error) => {
+            console.error("Error updating profile: ", error);
+          });
 
         signUpForm.style.display = "none";
         formContainer.style.display = "flex";
@@ -221,4 +249,4 @@ function showPassVal(ele, targetId) {
   }
 }
 
-window.showPassVal = showPassVal;  // Attach the function to the window object
+window.showPassVal = showPassVal; // Attach the function to the window object
