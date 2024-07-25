@@ -141,7 +141,9 @@ document.getElementById("Facebook").addEventListener("click", async () => {
 
 document.getElementById("github-auth").addEventListener(
   "click",
-  signInWithPopup(auth, provider)
+   async () => {
+    const provider = new GithubAuthProvider();
+    signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a GitHub Access Token. You can use it to access the GitHub API.
       const credential = GithubAuthProvider.credentialFromResult(result);
@@ -165,7 +167,7 @@ document.getElementById("github-auth").addEventListener(
       const credential = GithubAuthProvider.credentialFromError(error);
       // ...
     })
-);
+  });
 
 function signUpFormValues() {
   let email_val = email.value;
