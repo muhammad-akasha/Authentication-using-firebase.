@@ -39,15 +39,16 @@ input {
 }
 .login {
   width: 355px;
-  border: 2px solid #6fbdbd;
+  /* border: 2px solid #6fbdbd; */
   padding: 70px;
   border-radius: 30px;
-  background: radial-gradient(
+  backdrop-filter: blur(10px);
+  /* background: radial-gradient(
     circle,
     rgb(190 255 240) 0%,
     rgb(169 192 255) 80%,
     rgb(144 176 225) 100%
-  );
+  ); */
   box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
 }
 .fa-user,
@@ -116,15 +117,16 @@ p {
   width: 60%;
 }
 .signup-div {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   padding: 45px 60px;
   border-radius: 30px;
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle,
     rgb(190 255 240) 0%,
     rgb(169 192 255) 80%,
     rgb(144 176 225) 100%
-  );
+  ); */
+  backdrop-filter: blur(10px);
   box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
 }
 #signup h2 {
@@ -139,7 +141,7 @@ p {
   background: transparent;
 }
 .sign-up-form {
-  color: #355f9f;
+  color: #dfecff;
   font-size: 16px;
   padding-left: 4px;
   cursor: pointer;
